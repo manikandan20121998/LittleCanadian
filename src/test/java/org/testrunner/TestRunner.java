@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/resources",glue="org.stepdefinition",dryRun=false,
-tags="@tc2")
+tags="@tc3")
 public class TestRunner {
 
 }

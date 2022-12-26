@@ -27,6 +27,18 @@ public class pom1 extends BaseClass{
 	@FindBy(xpath="//span[text()='Accessories']")
     private WebElement access;
 	
+	@FindBy(xpath="//*[@id=\"justuno_form\"]/div/div[2]/div[10]/div/div/div/span/span/span")
+	private WebElement spin;
+	
+	public WebElement getLocation() {
+		return location;
+	}
+	public WebElement getSpin() {
+		return spin;
+	}
+	@FindBy(xpath="(//button[@type='submit'])[2]")
+	private WebElement location;
+	
 	public WebElement getAccess() {
 		return access;
 	}

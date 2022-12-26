@@ -9,15 +9,21 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
+	public static JavascriptExecutor je;
 	public static WebDriver driver; 
 	public static void chromebrowser() {
 
 		WebDriverManager.chromedriver().setup();
-	    driver=new ChromeDriver();	
+		ChromeOptions op=new ChromeOptions();
+		op.addArguments("--disable-notifications");
+		op.addArguments("--incognito");
+	    driver=new ChromeDriver(op);	
 	}
 
 	public static void urllaunch(String url) {
@@ -55,20 +61,37 @@ public class BaseClass {
   e.sendKeys(value,Keys.ENTER);	
 	}
 	
-	public static void scroll(WebElement e) {
-		JavascriptExecutor je=(JavascriptExecutor)driver;
-		je.executeScript("arguments[0].scrollIntoView(false)", e);
+	public static void scrolldown(WebElement e) {
+		je=(JavascriptExecutor)driver;
+		je.executeScript("arguments[0].scrollIntoView(true)", e);
 	}
 	
+	public static void movetoelement(WebElement e) {
+       Actions a=new Actions(driver);
+       a.moveToElement(e).perform();;
+		
+	}
+	public static void sendkeys(String txt,WebElement e) {
+      e.sendKeys(txt);
+	}
 	
+	public static void click(WebElement e) {
+		e.click();
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+	public static void jeclick(WebElement e) {
+ 
+		je.executeScript("arguments[0].click()", e);
+	}
+	public static void frame(WebElement e) {
+		driver.switchTo().frame(e);
+	}
+	public static void defaultcontent() {
+		driver.switchTo().defaultContent();
+	}
+	public static void parentframe() {
+		driver.switchTo().parentFrame();
+	}
 	
 	
 }
