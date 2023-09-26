@@ -109,8 +109,9 @@ public class StepDefinition extends BaseClass{
 	public void give_email_or_phonenumber_to_proceed() {
      sendkeys("manikandan978437@gmail.com", pom.instancepom2().getEmail());
      click(pom.instancepom2().getNext());
+     System.out.println("Completed.......");
+     System.out.println("Done......");
 	}
-
 
 
 }
