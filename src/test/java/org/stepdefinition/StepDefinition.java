@@ -111,6 +111,7 @@ public class StepDefinition extends BaseClass{
      click(pom.instancepom2().getNext());
      System.out.println("Completed.......");
      System.out.println("Done......");
+     System.out.println("Checked fine...");
 	}
 
 
